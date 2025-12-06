@@ -1,0 +1,49 @@
+body{
+  color: rebeccapurple;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+
+
+}
+
+.book-card{
+  display: flex;
+  flex-direction: column;
+  background-color: lightgrey;
+  border-radius: 20px;
+  padding: 30px;
+  gap: 10px;
+}
+
+.book-discription{
+  display: flex;
+  flex-direction: column;
+}
+
+.book-action{
+  display: flex;
+  flex-direction: row;
+}
+
+
+button{
+  width: 75px;
+}
+
+.read-button{
+  color: black;
+  background: orange;
+  border-style: none;
+}
+
+.finished-book{
+  color: white;
+  background-color: green;
+  border: none;
+}
+
