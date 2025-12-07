@@ -1,14 +1,48 @@
 body{
   color: rebeccapurple;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.add-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: black;
+  
+}
+
+.bowser-image{
+  height: 50x;
+  width: 50px;
+}
+
+.my-form{
+  font-size: 30px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  color: white;
+
+}
+
+.form-row{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 20px;
-
-
+  padding: 30px 30px 30px 30px;
 }
 
 .book-card{
@@ -30,6 +64,10 @@ body{
   flex-direction: row;
 }
 
+.author-style{
+  font-style: italic;
+}
+
 
 button{
   width: 75px;
@@ -47,3 +85,9 @@ button{
   border: none;
 }
 
+
+.submit-button{
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+}

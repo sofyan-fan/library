@@ -4,6 +4,7 @@ const myLibrary = [
 ];
 
 const container = document.querySelector(".container");
+const form = document.querySelector(".my-form");
 
 //Get form inputs
 const titleBook = document.getElementById("title-book");
@@ -39,7 +40,7 @@ function addBookToLibrary() {
   // create elements for the book card
   const bookCard = document.createElement("div");
   const bookDiscription = document.createElement("div");
-  const titlePar = document.createElement("p");
+  const titlePar = document.createElement("h1");
   const authorPar = document.createElement("p");
   const pagesPar = document.createElement("p");
   const bookAction = document.createElement("div");
@@ -52,6 +53,7 @@ function addBookToLibrary() {
   bookAction.classList.add("book-action");
   deleteBtn.classList.add("delete-button");
   readBtn.classList.add("read-button");
+  authorPar.classList.add("author-style");
 
   // create text for button
   deleteBtn.textContent = "Delete";
@@ -59,7 +61,7 @@ function addBookToLibrary() {
 
   // create text content for paragraphs of bookdiscription
   titlePar.textContent = "Title: " + book1.title;
-  authorPar.textContent = "Author: " + book1.author;
+  authorPar.textContent = "by " + book1.author;
   pagesPar.textContent = "Pages: " + book1.pages;
 
 
@@ -79,16 +81,19 @@ function addBookToLibrary() {
     console.log(myLibrary);
   });
 
-  readBtn.addEventListener("click", () =>{
+  readBtn.addEventListener("click", () => {
 
     readBtn.classList.toggle("finished-book")
-    if(readBtn.textContent === "Reading.."){
+    if (readBtn.textContent === "Reading..") {
       readBtn.textContent = "Finished"
-    }
-    else{
+    } else {
       readBtn.textContent = "Reading.."
     }
-  })
+  });
+
+  titleBook.value = " ";
+  authorBook.value = " ";
+  pagesBook.value = " ";
 
 };
 
@@ -101,22 +106,28 @@ const pagesError = document.getElementById("pages-error");
 
 
 
-addButton.addEventListener("click", () => {
-  let valid = true;
+form.addEventListener("submit", (e) => {
 
-  // Pages validation using HTML5 min
-  if (!pagesBook.validity.valid) {
-    if (pagesBook.validity.rangeUnderflow) {
-      pagesError.textContent = "Pages must be at least 1";
-    } else if (pagesBook.validity.valueMissing) {
-      pagesError.textContent = "Pages is required";
-    }
-    valid = false;
-  } else {
-    pagesError.textContent = "";
-  }
+  e.preventDefault();
 
-  if (valid) {
-    addBookToLibrary();
-  }
+  addBookToLibrary();
+
 });
+
+//  let valid = true;
+
+/* Pages validation using HTML5 min
+if (!pagesBook.validity.valid) {
+  if (pagesBook.validity.rangeUnderflow) {
+    pagesError.textContent = "Pages must be at least 1";
+  } else if (pagesBook.validity.valueMissing) {
+    pagesError.textContent = "Pages is required";
+  }
+  valid = false;
+} else {
+  pagesError.textContent = "";
+}
+
+if (valid) {
+  addBookToLibrary();
+} */
